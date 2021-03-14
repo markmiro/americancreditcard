@@ -56,6 +56,8 @@ export default function FaqPage() {
       </u>
       <p>
         TBD <span className="text-danger">TODO</span>
+        Reloading will follow the parallel market + a meager commission for the
+        service.
       </p>
       <u>
         <b>What currencies are supported for reloading my card?</b>

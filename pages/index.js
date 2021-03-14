@@ -36,7 +36,7 @@ export default function IndexPage() {
       </p>
       <p>
         <Link href="/faq">
-          <a className="btn btn-secondary">Learn More →</a>
+          <a className="btn btn-outline-light">Learn More →</a>
         </Link>
       </p>
       {/* <img
