@@ -1,13 +1,24 @@
 import { useState } from "react";
 
-const MIN_DINARS = 2150;
 function dinarsToUsd(dinars) {
-  return (dinars - MIN_DINARS) / 180;
+  if (!dinars) return 0;
+  return dinars / 180;
 }
+
+function usdToDinars(usd) {
+  if (!usd) return 0;
+  return usd * 180;
+}
+
+const CARD_PRICE_DINARS = 2150;
+// $2 minimum to load on the card
+const MIN_USD = 2;
+const MIN_DINARS = usdToDinars(MIN_USD);
 
 export function PaymentDetails() {
   const [payNow, setPayNow] = useState(true);
-  const [dinars, setDinars] = useState(MIN_DINARS * 5);
+  const [dinars, setDinars] = useState(MIN_DINARS);
+
   return (
     <div className="card bg-dark border-secondary">
       <div className="card-body">
@@ -36,41 +47,78 @@ export function PaymentDetails() {
 
         {payNow && (
           <>
-            <p>
-              Please send DZD to{" "}
-              <span className="text-danger">TODO BANK ADDRESS</span> and put in
-              the transaction reference number below.
-            </p>
-
             <div className="form-group">
-              <label>Dinars to send (DZD)</label>
+              <label>Amount to load on card:</label>
 
               <div className="input-group">
                 <div className="input-group-prepend">
-                  <span className="input-group-text">DZD</span>
+                  <span className="input-group-text">
+                    {CARD_PRICE_DINARS} DZD +
+                  </span>
                 </div>
                 <input
-                  type="text"
+                  type="number"
                   name="dinar_amount"
                   className="form-control"
                   placeholder="0.00"
                   value={dinars}
-                  onChange={(e) => setDinars(e.target.value)}
+                  onChange={(e) => setDinars(parseInt(e.target.value, 10))}
                   required
                 />
+                <span className="input-group-append">
+                  <span className="input-group-text">DZD</span>
+                </span>
               </div>
-
-              {dinarsToUsd(dinars) < 0 ? (
-                <div className="invalid-feedback">
-                  Please put in at least {MIN_DINARS} DZD
+              {dinars < MIN_DINARS ? (
+                // 'd-block' because 'invalid-feedback' defaults to `display: none`
+                <div className="invalid-feedback d-block">
+                  Please put in at least ${MIN_USD}
                 </div>
               ) : (
-                <>
-                  <i>The USD you'll receive on the card:</i> $
-                  {dinarsToUsd(dinars).toFixed(2)}
-                </>
+                // 'd-block' because 'invalid-feedback' defaults to `display: none`
+                <div className="valid-feedback d-block">
+                  You'll recieve <b>${dinarsToUsd(dinars).toFixed(2)}</b>
+                </div>
               )}
             </div>
+
+            <p>
+              Please send <b>{CARD_PRICE_DINARS + dinars} DZD</b> to the bank
+              account specified below.
+              <br />
+              <small className="text-muted">
+                ({CARD_PRICE_DINARS} DZD is for the card + {dinars} DZD that you
+                wanted loaded)
+              </small>
+            </p>
+
+            <pre className="text-white bg-secondary p-2">
+              <b>
+                <u>Infos Poste</u>
+              </b>
+              <br />
+              Nom: CHERFA
+              <br />
+              Prénom : Yassine
+              <br />
+              Compte : 0011356062
+              <br />
+              Clé : 69
+              <br />
+              Adresse: Batna
+              <br />
+              <br />
+              <b>
+                <u>BaridiMob</u>
+              </b>
+              <br />
+              RIP: 00799999001135606269
+              <br />
+            </pre>
+
+            <p>
+              Once the payment is sent, put in the transation reference number.
+            </p>
 
             <div className="form-group">
               <label>Transaction reference number</label>

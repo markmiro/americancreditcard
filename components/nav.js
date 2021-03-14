@@ -11,12 +11,12 @@ export function Nav() {
         <Link href="/">
           <a className="navbar-brand">
             <img
-              src="/river.svg"
-              width="24px"
+              src="/acc-logo.png"
+              width="48px"
               style={{ transform: "translateY(-2px)" }}
             />
             <span className="pl-2" />
-            American River Gold
+            American Credit Card
           </a>
         </Link>
         <button
@@ -46,24 +46,24 @@ export function Nav() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/info">
+              <Link href="/faq">
                 <a className="nav-link" onClick={() => setShow(false)}>
-                  Info
+                  FAQ
                 </a>
               </Link>
             </li>
             <li className="nav-item">
               <Link href="/about">
                 <a className="nav-link" onClick={() => setShow(false)}>
-                  About
+                  About Us
                 </a>
               </Link>
             </li>
-            {/* <li className="nav-item">
-              <Link href="/load-funds">
-                <a className="nav-link">Load Funds</a>
+            <li className="nav-item">
+              <Link href="https://americanrivergold.com/cardholders">
+                <a className="nav-link">Load Funds / Check Balance</a>
               </Link>
-            </li> */}
+            </li>
             <div className="pl-3" />
             <li className="nav-item">
               <Link href="/request-card">

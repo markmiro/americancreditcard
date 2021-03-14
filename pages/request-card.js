@@ -1,14 +1,16 @@
 /* eslint-disable */
 import { useState } from "react";
-import { cities } from "../components/cities";
+import { provinces } from "../components/provinces";
 import { ImageUpload } from "../components/upload-id";
 import { PaymentDetails } from "../components/payment-details";
 
 function Form() {
   const [showReferralCode, setShowReferralCode] = useState(false);
+  const [showInAlgeria, setShowInAlgeria] = useState(true);
   const [frontImage, setFrontImage] = useState(null);
   const [backImage, setBackImage] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   function handleSubmit(e) {
     e.preventDefault();
     setIsSubmitting(true);
@@ -34,11 +36,12 @@ function Form() {
       dob: e.target["dob"].value,
       email: e.target["email"].value,
       phone: e.target["phone"].value,
-      city: e.target["city"].value,
+      in_algeria: e.target["in_algeria"].checked,
+      algeria_province: e.target["algeria_province"]?.value ?? "",
       address: e.target["address"].value,
-      referral_code: e.target["referral_code"]?.value || "",
-      dinar_amount: e.target["dinar_amount"]?.value || 0,
-      txn_reference: e.target["txn_reference"]?.value || "",
+      referral_code: e.target["referral_code"]?.value ?? "",
+      dinar_amount: e.target["dinar_amount"]?.value ?? 0,
+      txn_reference: e.target["txn_reference"]?.value ?? "",
       front_id_image: getImageData(frontImage),
       back_id_image: getImageData(backImage)
     });
@@ -71,7 +74,9 @@ function Form() {
           type="date"
           name="dob"
           className="form-control"
-          placeholder="DD/MM/YY"
+          // Placeholder and pattern used as fallback for browsers that don't support native 'date' input
+          placeholder="YYYY-MM-DD"
+          pattern="\d{4}-\d{2}-\d{2}"
           required
         />
       </div>
@@ -88,23 +93,41 @@ function Form() {
       </div>
 
       <div className="form-group">
-        <label htmlFor="cityDataList" className="form-label">
-          City
-        </label>
-        <input
-          name="city"
-          className="form-control"
-          list="datalistOptions"
-          id="cityDataList"
-          placeholder="Type to search..."
-          required
-        />
-        <datalist id="datalistOptions">
-          {cities.map((city, i) => (
-            <option key={i} value={city} />
-          ))}
-        </datalist>
+        <div className="form-check">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            name="in_algeria"
+            checked={showInAlgeria}
+            onChange={(e) => setShowInAlgeria(e.target.checked)}
+            id="inAlgeriaCheckbox"
+          />
+          <label className="form-check-label" htmlFor="inAlgeriaCheckbox">
+            I live in Algeria
+          </label>
+        </div>
       </div>
+
+      {showInAlgeria && (
+        <div className="form-group">
+          <label htmlFor="provinceDataList" className="form-label">
+            Algerian province
+          </label>
+          <input
+            name="algeria_province"
+            className="form-control"
+            list="datalistOptions"
+            id="provinceDataList"
+            placeholder="Type to search..."
+            required
+          />
+          <datalist id="datalistOptions">
+            {provinces.map((city, i) => (
+              <option key={i} value={city} />
+            ))}
+          </datalist>
+        </div>
+      )}
 
       <div className="form-group">
         <label>Address</label>
@@ -155,7 +178,7 @@ function Form() {
             onImageChange={setFrontImage}
             name="front_id_image"
           >
-            Upload Front
+            Upload Front Image
           </ImageUpload>
           <div className="pt-3" />
           <ImageUpload
@@ -163,7 +186,7 @@ function Form() {
             onImageChange={setBackImage}
             name="back_id_image"
           >
-            Upload Back
+            Upload Back Image
           </ImageUpload>
         </div>
       </div>
@@ -199,14 +222,18 @@ export default function RequestCardPage() {
           height="120px"
           src="/algeria-map.png"
           style={{
-            flexShrink: 0, // prevent shrinking before image loads
-            filter: "brightness(0.7) contrast(1.5) grayscale(0.4)"
+            flexShrink: 0 // prevent shrinking before image loads
+            // filter: "brightness(0.7) contrast(1.5) grayscale(0.4)"
           }}
         />
 
         <div className="card-body border-left border-secondary">
           Need help? Contact Amir:{" "}
-          <span className="text-danger">+213-###-###-####</span>
+          <u>
+            <a href="tel:+213-798-59-63-22" className="d-block ">
+              +213-798-59-63-22
+            </a>
+          </u>
         </div>
       </div>
 

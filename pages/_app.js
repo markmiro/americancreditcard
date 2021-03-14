@@ -21,7 +21,7 @@ export default function App({ Component, pageProps }) {
         <div
           key={router.pathname}
           className="container-sm arg-slide-fade-in"
-          style={{ maxWidth: "540px" }}
+          style={{ maxWidth: "550px" }}
         >
           <pre>{JSON.stringify(Component, null, "  ")}</pre>
           <Component {...pageProps} />
@@ -31,7 +31,7 @@ export default function App({ Component, pageProps }) {
         <div className="inner">
           <img srcSet="/payment-processors.png 3x" alt="" />
           <div className="pb-3" />
-          <p>American River Gold © 2021</p>
+          <p>American Credit Card © {new Date().getFullYear()}</p>
         </div>
       </footer>
     </div>
