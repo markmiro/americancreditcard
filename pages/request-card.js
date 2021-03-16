@@ -1,8 +1,10 @@
 /* eslint-disable */
 import { useState } from "react";
+import axios from "axios";
 import { provinces } from "../components/provinces";
 import { ImageUpload } from "../components/upload-id";
 import { PaymentDetails } from "../components/payment-details";
+import testData from "../components/test-data.json";
 
 function Form() {
   const [showReferralCode, setShowReferralCode] = useState(false);
@@ -45,11 +47,6 @@ function Form() {
       front_id_image: getImageData(frontImage),
       back_id_image: getImageData(backImage)
     });
-
-    setTimeout(() => {
-      setIsSubmitting(false);
-      alert("Check Devtools!");
-    }, 1000);
   }
 
   return (
@@ -58,16 +55,32 @@ function Form() {
       disabled={isSubmitting}
       encType="multipart/form-data"
     >
+      <button
+        type="button"
+        onClick={() => {
+          console.log(testData);
+
+          axios
+            .post("https://americanrivergold.com/newcardrequests", testData)
+            .then((response) => {
+              console.log({ axiosResponse: response });
+            })
+            .catch((err) => {
+              console.log({ axiosError: err });
+              alert(err.message);
+            });
+        }}
+      >
+        Submit Fake Data
+      </button>
       <div className="form-group">
         <label>First name</label>
         <input name="first_name" className="form-control" required />
       </div>
-
       <div className="form-group">
         <label>Last name</label>
         <input name="last_name" className="form-control" required />
       </div>
-
       <div className="form-group">
         <label>Date of birth</label>
         <input
@@ -80,18 +93,15 @@ function Form() {
           required
         />
       </div>
-
       <div className="form-group">
         <label>Email address</label>
         <input type="email" name="email" className="form-control" required />
         {/* <small className="form-text text-muted">We won't spam you</small> */}
       </div>
-
       <div className="form-group">
         <label>Phone number</label>
         <input type="tel" name="phone" className="form-control" required />
       </div>
-
       <div className="form-group">
         <div className="form-check">
           <input
@@ -107,7 +117,6 @@ function Form() {
           </label>
         </div>
       </div>
-
       {showInAlgeria && (
         <div className="form-group">
           <label htmlFor="provinceDataList" className="form-label">
@@ -128,16 +137,12 @@ function Form() {
           </datalist>
         </div>
       )}
-
       <div className="form-group">
         <label>Address</label>
         <input name="address" className="form-control" required />
       </div>
-
       {/* <div className="pt-2" /> */}
-
       <hr className="border-secondary mt-4 mb-4" />
-
       <div className="card bg-dark border-secondary">
         <div className="card-body">
           <div className="form-check">
@@ -161,13 +166,9 @@ function Form() {
           )}
         </div>
       </div>
-
       <div className="pt-4" />
-
       <PaymentDetails />
-
       <div className="pt-4" />
-
       <div className="card bg-dark border-secondary">
         <div className="card-header border-secondary text-center">
           Upload ID
@@ -190,9 +191,7 @@ function Form() {
           </ImageUpload>
         </div>
       </div>
-
       <div className="pt-4" />
-
       <button
         type="submit"
         className="btn btn-primary btn-block"
@@ -238,23 +237,6 @@ export default function RequestCardPage() {
       </div>
 
       <div className="pt-4" />
-
-      {/* <div className="card bg-dark border-secondary">
-        <img
-          src="/algeria-map.png"
-          width="100%"
-          className="card-img-top"
-          style={{
-            filter: "grayscale(.5)"
-          }}
-        />
-        <div className="card-body">
-          Need help? Contact Amir:{" "}
-          <span className="text-danger">+213-###-###-####</span>
-        </div>
-      </div> */}
-
-      {/* <div className="pt-4" /> */}
 
       <Form />
     </>
