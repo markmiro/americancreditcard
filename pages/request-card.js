@@ -1,10 +1,8 @@
 /* eslint-disable */
 import { useState } from "react";
-import axios from "axios";
 import { provinces } from "../components/provinces";
 import { ImageUpload } from "../components/upload-id";
 import { PaymentDetails } from "../components/payment-details";
-import testData from "../components/test-data.json";
 
 function Form() {
   const [showReferralCode, setShowReferralCode] = useState(false);
@@ -55,24 +53,6 @@ function Form() {
       disabled={isSubmitting}
       encType="multipart/form-data"
     >
-      <button
-        type="button"
-        onClick={() => {
-          console.log(testData);
-
-          axios
-            .post("https://americanrivergold.com/newcardrequests", testData)
-            .then((response) => {
-              console.log({ axiosResponse: response });
-            })
-            .catch((err) => {
-              console.log({ axiosError: err });
-              alert(err.message);
-            });
-        }}
-      >
-        Submit Fake Data
-      </button>
       <div className="form-group">
         <label>First name</label>
         <input name="first_name" className="form-control" required />
