@@ -29,7 +29,6 @@ export default function App({ Component, pageProps }) {
       </div>
       <footer className="text-center text-secondary">
         <div className="inner">
-          <img srcSet="/payment-processors.png 3x" alt="" />
           <div className="pb-3" />
           <p>American Credit Card © {new Date().getFullYear()}</p>
         </div>

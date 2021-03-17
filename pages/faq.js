@@ -1,5 +1,6 @@
 /* eslint-disable */
 import Link from "next/link";
+import { CARD_PRICE_USD, CARD_PRICE_DINARS } from "../components/card-utils";
 
 export default function FaqPage() {
   return (
@@ -14,16 +15,20 @@ export default function FaqPage() {
         <b>What is the American Credit Card?</b>
       </u>
       <p>
-        The American Credit Card is a prepaid card, which allows you to make
-        purchases anywhere in the world and on the internet.
+        The American Credit Card is a prepaid virtual card for Algeria and
+        surrounding countries, which allows you to make purchases anywhere in
+        the world and on the internet.
       </p>
       <u>
         <b>What are the fees?</b>
       </u>
-      <p>$12 for the card plus $0.49 per month</p>
       <p>
-        The first time you load the card is free. After that it's X% each time
-        you reload the card.
+        ${CARD_PRICE_USD} ({CARD_PRICE_DINARS} DZD) for the card plus $0.49 per
+        month.
+      </p>
+      <p>
+        Reload rate is 180 DZD = 1 United States Dollar on the card (this may
+        change according to economic conditions).
       </p>
       <u>
         <b>What do I get when I purchase a card?</b>
@@ -39,51 +44,67 @@ export default function FaqPage() {
       <u>
         <b>How soon can I expect to be able to use my card?</b>
       </u>
-      <p>Your card is activated a few hours after its acquisition.</p>
+      <p>Your card will be activated a few hours after payment is sent.</p>
       <u>
-        <b>When does my card expire?</b>
+        <b>Will my card stop working after the card's expiration date?</b>
       </u>
-      <p>Cards are valid for 3 years.</p>
+      <p>
+        You will get a new card with a new expiration for free after the card's
+        expiration date.
+      </p>
       <u>
         <b>Where can I use my card?</b>
       </u>
       <p>
         You can use the card anywhere that requires a credit card. You can link
-        it to PayPal and Google Pay.
+        it to PayPal, Apple Pay, Google Pay, and other platforms.
       </p>
       <u>
         <b>How can I reload my card?</b>
       </u>
       <p>
-        TBD <span className="text-danger">TODO</span>
-        Reloading will follow the parallel market + a meager commission for the
-        service.
+        You can reload the card with Algerian Dinars through your service rep or{" "}
+        <a
+          href="https://americanrivergold.com/cardholders"
+          className="link-primary"
+        >
+          online
+        </a>
+        .
       </p>
       <u>
         <b>What currencies are supported for reloading my card?</b>
       </u>
-      <p>US Dollar, Euro, Cryptocurrency or Dinar</p>
+      <p>
+        US Dollar, Euro, Cryptocurrency or Algerian Dinar. Ask your sales rep if
+        you would like to pay with other types of currency.
+      </p>
       <u>
         <b>Can I send money between other cardholders?</b>
       </u>
-      <p>Yes</p>
+      <p>Yes.</p>
       <u>
         <b>How can I contact you?</b>
       </u>
       <ul>
         <li>
-          <a href="https://www.facebook.com/americanrivergold.dz">
-            Facebook / Facebook Messenger
+          <a href="https://www.facebook.com/groups/1182811245433982">
+            <u>Facebook / Facebook Messenger</u>
           </a>
         </li>
         <li>
-          WhatsApp <span className="text-danger">TODO</span>
+          Email:{" "}
+          <u>
+            <a href="mailto:support@americanrivergold.com">
+              support@americanrivergold.com
+            </a>
+          </u>
         </li>
         <li>
-          Telephone <span className="text-danger">TODO</span>
-        </li>
-        <li>
-          Email <span className="text-danger">TODO</span>
+          Telephone / WhatsApp:{" "}
+          <u>
+            <a href="tel:+213-798-59-63-22">+213-798-59-63-22</a>
+          </u>
         </li>
       </ul>
       <p>

@@ -15,7 +15,7 @@ The tech stack:
 Other tech:
 
 - Vercel (used for hosting)
-- Github (for the repo)
+- Github (source code hosting)
 
 ---
 

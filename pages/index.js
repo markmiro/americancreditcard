@@ -1,5 +1,6 @@
 /* eslint-disable */
 import Link from "next/link";
+import { CARD_PRICE_USD, CARD_PRICE_DINARS } from "../components/card-utils";
 
 export default function IndexPage() {
   return (
@@ -11,12 +12,14 @@ export default function IndexPage() {
       }}
     >
       <div className="h1">🇩🇿 + 🇺🇸</div>
+      <img src="/payment-processors.png" height="48" alt="" />
+      <div className="pt-4" />
       <h1 className="cover-heading">
         Use American dollars to make your purchases.
       </h1>
       <p className="lead">
-        The American Credit Card is a prepaid card, which allows you to make
-        purchases anywhere in the world and on the internet.
+        The American Credit Card is a prepaid virtual card, which allows
+        Algerians to make purchases anywhere in the world and on the internet.
       </p>
       <p className="lead">
         <Link href="/request-card">
@@ -24,16 +27,18 @@ export default function IndexPage() {
         </Link>
       </p>
       <hr />
-      <p className="lead">$12 for the card plus $0.49 per month</p>
+      <p className="lead">
+        ${CARD_PRICE_USD} ({CARD_PRICE_DINARS} DZD) for the card plus $0.49 per
+        month.
+      </p>
       <hr />
       <p className="lead">
         And, for the first time in Algeria, when you buy a credit card, it will
         be activated the same day!
       </p>
       <hr />
-      <p className="lead">
-        Your card is activated a few hours after its acquisition.
-      </p>
+      <p className="lead">Your card is activated within a few hours.</p>
+      <hr />
       <p>
         <Link href="/faq">
           <a className="btn btn-outline-light">Learn More →</a>

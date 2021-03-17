@@ -6,7 +6,7 @@ export function Nav() {
   const [show, setShow] = useState(false);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
       <div className="container-fluid">
         <Link href="/">
           <a className="navbar-brand">
@@ -53,13 +53,6 @@ export function Nav() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link href="/about">
-                <a className="nav-link" onClick={() => setShow(false)}>
-                  About Us
-                </a>
-              </Link>
-            </li>
-            <li className="nav-item">
               <Link href="https://americanrivergold.com/cardholders">
                 <a className="nav-link">Load Funds / Check Balance</a>
               </Link>
@@ -68,7 +61,7 @@ export function Nav() {
             <li className="nav-item">
               <Link href="/request-card">
                 <a
-                  className="btn btn-secondary btn-block"
+                  className="btn btn-outline-light btn-block"
                   onClick={() => setShow(false)}
                 >
                   Request Card

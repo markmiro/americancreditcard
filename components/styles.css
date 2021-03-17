@@ -4,7 +4,7 @@
 
 :root {
   /* Using bootstrap default. Used for logo too */
-  --brand: #007BFF;
+  --brand: #007bff;
 }
 
 /* Links */
@@ -53,7 +53,7 @@ body:before {
 }
 
 /*
- * Custom
+ * Custom (prefix with "arg")
  */
 
 .arg-slide-fade-in {

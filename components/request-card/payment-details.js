@@ -1,19 +1,10 @@
 import { useState } from "react";
-
-function dinarsToUsd(dinars) {
-  if (!dinars) return 0;
-  return dinars / 180;
-}
-
-function usdToDinars(usd) {
-  if (!usd) return 0;
-  return usd * 180;
-}
-
-const CARD_PRICE_DINARS = 2150;
-// $2 minimum to load on the card
-const MIN_USD = 2;
-const MIN_DINARS = usdToDinars(MIN_USD);
+import {
+  MIN_DINARS,
+  CARD_PRICE_DINARS,
+  MIN_USD,
+  dinarsToUsd
+} from "../card-utils";
 
 export function PaymentDetails() {
   const [payNow, setPayNow] = useState(true);
