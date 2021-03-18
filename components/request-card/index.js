@@ -130,6 +130,7 @@ export function Form() {
         <input
           type="date"
           name="dob"
+          autoComplete="bday"
           className="form-control"
           // Placeholder and pattern used as fallback for browsers that don't support native 'date' input
           placeholder="YYYY-MM-DD"
