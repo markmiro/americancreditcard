@@ -16,3 +16,5 @@ export const CARD_PRICE_USD = Math.ceil(dinarsToUsd(CARD_PRICE_DINARS));
 // $2 minimum to load on the card
 export const MIN_USD = 2;
 export const MIN_DINARS = usdToDinars(MIN_USD);
+
+export const MONTHLY_COST_USD = 0.49;

@@ -7,17 +7,6 @@
   --brand: #007bff;
 }
 
-/* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
-}
-
-/*
- * Base structure
- */
-
 html,
 body {
   min-height: 100%;
@@ -36,6 +25,16 @@ body:before {
   background-size: cover;
   opacity: 0.2;
   pointer-events: none;
+}
+
+a,
+a:focus,
+a:hover {
+  color: #fff;
+}
+
+hr {
+  background-color: #ffffff33;
 }
 
 /*

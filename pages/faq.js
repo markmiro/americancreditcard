@@ -1,6 +1,10 @@
 /* eslint-disable */
 import Link from "next/link";
-import { CARD_PRICE_USD, CARD_PRICE_DINARS } from "../components/card-utils";
+import {
+  CARD_PRICE_USD,
+  CARD_PRICE_DINARS,
+  MONTHLY_COST_USD
+} from "../components/card-utils";
 
 export default function FaqPage() {
   return (
@@ -23,8 +27,8 @@ export default function FaqPage() {
         <b>What are the fees?</b>
       </u>
       <p>
-        ${CARD_PRICE_USD} ({CARD_PRICE_DINARS} DZD) for the card plus $0.49 per
-        month.
+        ${CARD_PRICE_USD} ({CARD_PRICE_DINARS} DZD) for the card plus $
+        {MONTHLY_COST_USD} per month.
       </p>
       <p>
         Reload rate is 180 DZD = 1 United States Dollar on the card (this may

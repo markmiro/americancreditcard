@@ -1,6 +1,10 @@
 /* eslint-disable */
 import Link from "next/link";
-import { CARD_PRICE_USD, CARD_PRICE_DINARS } from "../components/card-utils";
+import {
+  CARD_PRICE_USD,
+  CARD_PRICE_DINARS,
+  MONTHLY_COST_USD
+} from "../components/card-utils";
 
 export default function IndexPage() {
   return (
@@ -28,8 +32,8 @@ export default function IndexPage() {
       </p>
       <hr />
       <p className="lead">
-        ${CARD_PRICE_USD} ({CARD_PRICE_DINARS} DZD) for the card plus $0.49 per
-        month.
+        ${CARD_PRICE_USD} ({CARD_PRICE_DINARS} DZD) for the card plus $
+        {MONTHLY_COST_USD} per month.
       </p>
       <hr />
       <p className="lead">
@@ -44,15 +48,6 @@ export default function IndexPage() {
           <a className="btn btn-outline-light">Learn More →</a>
         </Link>
       </p>
-      {/* <img
-        width="100%"
-        height="auto"
-        src="/algeria-map.png"
-        style={{
-          maxWidth: "250px"
-          // filter: "brightness(0.7) contrast(1.5) grayscale(0.4)"
-        }}
-      /> */}
     </div>
   );
 }

@@ -26,13 +26,9 @@ export default function RequestCard() {
   return (
     <div>
       <h1>Request Card</h1>
-
       <div className="pt-3" />
-
       <HelpCard />
-
       <div className="pt-4" />
-
       <Form />
     </div>
   );

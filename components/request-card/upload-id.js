@@ -2,7 +2,7 @@
 import React from "react";
 import ImageUploading from "react-images-uploading";
 
-export function ImageUpload({ image, onImageChange, children }) {
+export function ImageUpload({ image, onImageChange, buttonId, children }) {
   const dataURLKey = "data_url";
   return (
     <ImageUploading
@@ -16,6 +16,8 @@ export function ImageUpload({ image, onImageChange, children }) {
           <button
             // type="button" prevents form from being submitted when pressed
             type="button"
+            // `id` used for focusing on submit when user forgot to add image
+            id={buttonId}
             className="btn btn-block btn-secondary"
             style={{ height: "5em" }}
             onClick={onImageUpload}
@@ -29,7 +31,7 @@ export function ImageUpload({ image, onImageChange, children }) {
           >
             <img className="card-img-top" src={imageList[0][dataURLKey]} />
             <div
-              className="p-2 position-absolute btn-group"
+              className="p-2 position-absolute btn-group shadow"
               style={{ bottom: 0, right: 0 }}
             >
               <button

@@ -1,77 +1,33 @@
 import axios from "axios";
 import testData from "../components/request-card/test-submit-data.json";
-import { uid } from "uid";
+import frontImage from "../components/request-card/test-front-id-image.json";
+import backImage from "../components/request-card/test-back-id-image.json";
+import { submitData } from "../components/request-card/submit-data";
 
 export default function RequestCardTest() {
+  async function handleSubmit() {
+    try {
+      await submitData({ data: testData, frontImage, backImage });
+      alert("success");
+    } catch (errors) {
+      console.error(errors);
+    }
+  }
+
   return (
     <div>
-      <h1>Request Card Test</h1>
-      <button
-        type="button"
-        onClick={() => {
-          // Shallow copy
-          const withoutImages = { ...testData };
-          delete withoutImages.front_id_image;
-          delete withoutImages.back_id_image;
-
-          console.log(withoutImages);
-
-          axios
-            .post(
-              "https://americanrivergold.com/newcardrequests",
-              withoutImages
-            )
-            .then((response) => {
-              console.log({ axiosResponse: response });
-            })
-            .catch((err) => {
-              console.log({ axiosError: err });
-              alert(err.message);
-            });
-        }}
-      >
-        Submit Fake Data (without images)
-      </button>
-      <button
-        type="button"
-        onClick={() => {
-          console.log(testData);
-
-          const submission_id = uid();
-
-          axios
-            .post("https://americanrivergold.com/front_id_image", testData)
-            .then((response) => {
-              console.log({ axiosResponse: response });
-            })
-            .catch((err) => {
-              console.log({ axiosError: err });
-              alert(err.message);
-            });
-
-          axios
-            .post("https://americanrivergold.com/back_id_image", testData)
-            .then((response) => {
-              console.log({ axiosResponse: response });
-            })
-            .catch((err) => {
-              console.log({ axiosError: err });
-              alert(err.message);
-            });
-        }}
-      >
+      <h1>Request Card Test 2</h1>
+      <h5>To ARG backend</h5>
+      <button type="button" onClick={handleSubmit}>
         Submit Fake Data
       </button>
-      <h2>Serverless</h2>
+      <hr />
+      <h5>Serverless</h5>
       <button
         type="button"
         onClick={() => {
-          const withoutImages = { ...testData };
-          delete withoutImages.front_id_image;
-          delete withoutImages.back_id_image;
-
           axios
-            .post("/api/request-card", withoutImages)
+            .post("/api/request-card", testData)
             .then((response) => {
               console.log(response.data);
             })
@@ -82,23 +38,6 @@ export default function RequestCardTest() {
         }}
       >
         Submit Fake
-      </button>
-      <h2>Test API</h2>
-      <button
-        type="button"
-        onClick={() => {
-          axios
-            .get("https://jsonplaceholder.typicode.com/todos/1")
-            .then((response) => {
-              console.log({ axiosResponse: response });
-            })
-            .catch((err) => {
-              console.log({ axiosError: err });
-              alert(err.message);
-            });
-        }}
-      >
-        Test API
       </button>
     </div>
   );
