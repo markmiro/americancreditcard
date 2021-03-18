@@ -21,7 +21,12 @@ export function ReferalCode() {
       {showReferralCode && (
         <div className="form-group">
           <label>Referral code</label>
-          <input name="referral_code" className="form-control" />
+          <input
+            name="referral_code"
+            className="form-control"
+            autoCapitalize={false}
+            style={{ textTransform: "uppercase" }}
+          />
         </div>
       )}
     </>

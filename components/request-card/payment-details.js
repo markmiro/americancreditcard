@@ -113,7 +113,12 @@ export function PaymentDetails() {
 
             <div className="form-group">
               <label>Transaction reference number</label>
-              <input name="txn_reference" className="form-control" required />
+              <input
+                name="txn_reference"
+                className="form-control"
+                autoCapitalize={false}
+                required
+              />
             </div>
           </>
         )}

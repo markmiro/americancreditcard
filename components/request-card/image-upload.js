@@ -1,9 +1,42 @@
 /* eslint-disable */
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ImageUploading from "react-images-uploading";
 
+import Resizer from "react-image-file-resizer";
+
+export const resizeFile = (file) => {
+  const MAX_W = 2048;
+  const MAX_H = MAX_W;
+  return new Promise((resolve) => {
+    Resizer.imageFileResizer(
+      file,
+      MAX_W,
+      MAX_H,
+      "JPEG",
+      75,
+      0,
+      (uri) => {
+        resolve({
+          ...file,
+          size: null,
+          type: "image/jpeg",
+          dataUrl: uri
+        });
+      },
+      "base64"
+    );
+  });
+};
+
 export function ImageUpload({ image, onImageChange, buttonId, children }) {
-  const dataURLKey = "data_url";
+  const [resized, setResized] = useState(null);
+  const dataURLKey = "dataUrl";
+
+  useEffect(async () => {
+    if (!image) return;
+    setResized(await resizeFile(image.file));
+  }, [image]);
+
   return (
     <ImageUploading
       name="file"
@@ -30,6 +63,17 @@ export function ImageUpload({ image, onImageChange, buttonId, children }) {
             style={{ overflow: "hidden" }}
           >
             <img className="card-img-top" src={imageList[0][dataURLKey]} />
+            {/* {resized && (
+              <div
+                style={{
+                  height: 400,
+                  background: `url(${resized.dataUrl})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center center"
+                }}
+              />
+            )} */}
             <div
               className="p-2 position-absolute btn-group shadow"
               style={{ bottom: 0, right: 0 }}

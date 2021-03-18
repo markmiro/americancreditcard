@@ -1,9 +1,10 @@
 /* eslint-disable */
 import { useState } from "react";
 import { useRouter } from "next/router";
+
 import { Location } from "./location";
 import { ReferalCode } from "./referal-code";
-import { ImageUpload } from "./upload-id";
+import { ImageUpload, resizeFile } from "./image-upload";
 import { PaymentDetails } from "./payment-details";
 import { submitData } from "./submit-data";
 import testData from "./test-submit-data.json";
@@ -33,29 +34,35 @@ export function Form() {
     if (e.target["email"].value !== e.target["email_confirm"].value) {
       alert("Your confirmation email doesn't match.");
       e.target["email_confirm"].focus();
+      e.target["email_confirm"].scrollIntoView();
       return;
     }
 
     if (!frontImage) {
       alert("Please upload both the front of your ID.");
       document.getElementById("front_id_image_button").focus();
+      document.getElementById("front_id_image_button").scrollIntoView();
       return;
     }
 
     if (!backImage) {
       alert("Please upload both the back of your ID.");
       document.getElementById("back_id_image_button").focus();
+      document.getElementById("back_id_image_button").scrollIntoView();
       return;
     }
 
-    const getImageData = (image) =>
-      image && {
-        name: image.file.name,
-        last_modified: image.file.lastModified,
-        size: image.file.size,
-        type: image.file.type,
-        data_url: image.data_url
+    const getImageData = async (image) => {
+      if (!image) return;
+      const resizedFile = await resizeFile(image.file);
+      return {
+        name: resizedFile.name,
+        last_modified: resizedFile.lastModified,
+        size: resizedFile.size,
+        type: resizedFile.type,
+        data_url: resizedFile.dataUrl
       };
+    };
 
     /**
      * NOTE:
@@ -91,8 +98,8 @@ export function Form() {
       setIsSubmitting(true);
       await submitData({
         data,
-        frontImage: getImageData(frontImage),
-        backImage: getImageData(backImage)
+        frontImage: await getImageData(frontImage),
+        backImage: await getImageData(backImage)
       });
       // Don't reset anything, just change route when success
       goToSuccess();
