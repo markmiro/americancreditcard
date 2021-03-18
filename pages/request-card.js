@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { Form } from "../components/request-card";
+import { Form } from "../components/request-card/index";
 
 const HelpCard = () => (
   <div className="card bg-dark border-secondary d-flex flex-row">

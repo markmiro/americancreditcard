@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import "bootstrap/dist/css/bootstrap.css";
-import "../components/styles.css";
+import "../styles/index.css";
 import { Nav } from "../components/nav";
 
 export default function App({ Component, pageProps }) {

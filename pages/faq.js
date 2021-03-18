@@ -4,7 +4,7 @@ import {
   CARD_PRICE_USD,
   CARD_PRICE_DINARS,
   MONTHLY_COST_USD
-} from "../components/card-utils";
+} from "../components/cardUtils";
 
 export default function FaqPage() {
   return (
