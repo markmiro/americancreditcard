@@ -1,44 +1,35 @@
-import axios from "axios";
 import testData from "../components/request-card/test-submit-data.json";
 import frontImage from "../components/request-card/test-front-id-image.json";
 import backImage from "../components/request-card/test-back-id-image.json";
 import { submitData } from "../components/request-card/submit-data";
+import { useState } from "react";
 
 export default function RequestCardTest() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   async function handleSubmit() {
+    setIsSubmitting(true);
     try {
       await submitData({ data: testData, frontImage, backImage });
       alert("success");
     } catch (errors) {
       console.error(errors);
     }
+    setIsSubmitting(false);
   }
 
   return (
     <div>
-      <h1>Request Card Test 2</h1>
-      <h5>To ARG backend</h5>
-      <button type="button" onClick={handleSubmit}>
-        Submit Fake Data
-      </button>
-      <hr />
-      <h5>Serverless</h5>
+      <h1>Request Card Test</h1>
       <button
         type="button"
-        onClick={() => {
-          axios
-            .post("/api/request-card", testData)
-            .then((response) => {
-              console.log(response.data);
-            })
-            .catch((err) => {
-              console.log({ axiosError: err });
-              alert(err.message);
-            });
-        }}
+        className="btn btn-primary btn-lg"
+        onClick={handleSubmit}
+        disabled={isSubmitting}
       >
-        Submit Fake
+        Submit Fake Data
       </button>
+      <p className="text-muted">See console for output.</p>
     </div>
   );
 }
