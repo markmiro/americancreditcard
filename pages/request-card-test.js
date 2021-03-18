@@ -1,8 +1,8 @@
+import { useState } from "react";
 import testData from "../components/request-card/test-submit-data.json";
 import frontImage from "../components/request-card/test-front-id-image.json";
 import backImage from "../components/request-card/test-back-id-image.json";
-import { submitData } from "../components/request-card/submit-data";
-import { useState } from "react";
+import { submitData } from "../components/request-card/submitData";
 
 export default function RequestCardTest() {
   const [isSubmitting, setIsSubmitting] = useState(false);
