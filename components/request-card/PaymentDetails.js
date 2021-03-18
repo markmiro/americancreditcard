@@ -4,7 +4,7 @@ import {
   CARD_PRICE_DINARS,
   MIN_USD,
   dinarsToUsd
-} from "../card-utils";
+} from "../cardUtils";
 
 export function PaymentDetails() {
   const [payNow, setPayNow] = useState(true);

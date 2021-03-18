@@ -2,11 +2,11 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
 
-import { Location } from "./location";
-import { ReferalCode } from "./referal-code";
-import { ImageUpload, resizeFile } from "./image-upload";
-import { PaymentDetails } from "./payment-details";
-import { submitData } from "./submit-data";
+import { Location } from "./Location";
+import { ReferalCode } from "./ReferalCode";
+import { ImageUpload, resizeFile } from "./ImageUpload";
+import { PaymentDetails } from "./PaymentDetails";
+import { submitData } from "./submitData";
 import testData from "./test-submit-data.json";
 
 export function Form() {

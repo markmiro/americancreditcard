@@ -17,7 +17,9 @@ export function ReferalCode() {
           I have a referral code
         </label>
       </div>
+
       {showReferralCode && <div className="pt-2" />}
+
       {showReferralCode && (
         <div className="form-group">
           <label>Referral code</label>

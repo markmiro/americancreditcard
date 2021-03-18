@@ -11,6 +11,7 @@ The tech stack:
 - Next.js
 - React
 - react-images-uploading
+- react-image-file-resizer
 
 Other tech:
 
