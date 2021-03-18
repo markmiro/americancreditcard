@@ -10,7 +10,6 @@ import testData from "./test-submit-data.json";
 
 export function Form() {
   const router = useRouter();
-  const [errors, setErrors] = useState(null);
   const [frontImage, setFrontImage] = useState(null);
   const [backImage, setBackImage] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,7 +29,6 @@ export function Form() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setErrors(null); // Reset any errors
 
     if (e.target["email"].value !== e.target["email_confirm"].value) {
       alert("Your confirmation email doesn't match.");
@@ -99,8 +97,9 @@ export function Form() {
       // Don't reset anything, just change route when success
       goToSuccess();
     } catch (errors) {
-      alert("Submission failed. Please fix any errors and try again");
-      setErrors(errors);
+      alert(
+        "Submission failed. Please fix any errors and try again. Contact support if you need help."
+      );
       setIsSubmitting(false);
     }
   }
