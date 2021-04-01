@@ -1,5 +1,10 @@
 # About this site
 
+YouTube:
+
+- Next js + CodeSandbox + Vercel: https://youtu.be/SHzllTIHiZg
+- Code run-through for this site: https://youtu.be/UMkuDi9oyqY
+
 Original image assets are here:
 https://www.figma.com/file/XktCU0XpWaPPiLmVgcJcTF/ACC
 
