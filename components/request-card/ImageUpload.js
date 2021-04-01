@@ -7,6 +7,7 @@ import Resizer from "react-image-file-resizer";
 export const resizeFile = (file) => {
   const MAX_W = 2048;
   const MAX_H = MAX_W;
+
   return new Promise((resolve) => {
     Resizer.imageFileResizer(
       file,

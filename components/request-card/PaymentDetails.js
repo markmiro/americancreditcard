@@ -116,7 +116,7 @@ export function PaymentDetails() {
               <input
                 name="txn_reference"
                 className="form-control"
-                autoCapitalize={false}
+                autoCapitalize="off"
                 required
               />
             </div>

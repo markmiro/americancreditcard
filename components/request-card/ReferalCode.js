@@ -26,7 +26,7 @@ export function ReferalCode() {
           <input
             name="referral_code"
             className="form-control"
-            autoCapitalize={false}
+            autoCapitalize="off"
             style={{ textTransform: "uppercase" }}
           />
         </div>
