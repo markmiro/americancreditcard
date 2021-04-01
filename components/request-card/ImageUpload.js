@@ -30,13 +30,13 @@ export const resizeFile = (file) => {
 };
 
 export function ImageUpload({ image, onImageChange, buttonId, children }) {
-  const [resized, setResized] = useState(null);
+  // const [resized, setResized] = useState(null);
   const dataURLKey = "dataUrl";
 
-  useEffect(async () => {
-    if (!image) return;
-    setResized(await resizeFile(image.file));
-  }, [image]);
+  // useEffect(async () => {
+  //   if (!image) return;
+  //   setResized(await resizeFile(image.file));
+  // }, [image]);
 
   return (
     <ImageUploading
