@@ -25,7 +25,7 @@ export default function IndexPage() {
 
       <div className="pt-3" />
 
-      <h1>American Credit Card</h1>
+      <h1>Hello there</h1>
       <p className="lead">
         The American Credit Card is a prepaid virtual card, which allows
         Algerians to make purchases anywhere in the world and on the internet.
