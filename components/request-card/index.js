@@ -78,6 +78,9 @@ export function Form() {
      *
      * On submission the form DOM node (e.target in this case) gets an attribute added for each
      * form input that has a `name` HTML attribute. The is standard browser behavior, but good to know
+     *
+     * See a plain JS form example here:
+     * https://codesandbox.io/s/form-example-in-plain-javascript-6u2gy
      */
 
     const data = {

@@ -14,8 +14,8 @@ const HelpCard = () => (
     <div className="card-body border-left border-secondary">
       Need help? Contact customer support:{" "}
       <u>
-        <a href="tel:+213-798-59-63-22" className="d-block ">
-          +213-798-59-63-22
+        <a href="tel:+213-542-90-50-08" className="d-block ">
+          +213-542-90-50-08
         </a>
       </u>
     </div>

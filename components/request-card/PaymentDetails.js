@@ -88,13 +88,13 @@ export function PaymentDetails() {
                 <u>Infos Poste</u>
               </b>
               <br />
-              Nom: CHERFA
+              Nom: Loulachi
               <br />
-              Prénom : Yassine
+              Prénom : Abdelheq
               <br />
-              Compte : 0011356062
+              Compte : 0017691194
               <br />
-              Clé : 69
+              Clé : 77
               <br />
               Adresse: Batna
               <br />
@@ -103,7 +103,7 @@ export function PaymentDetails() {
                 <u>BaridiMob</u>
               </b>
               <br />
-              RIP: 00799999001135606269
+              RIP: 00799999001769119477
               <br />
             </pre>
 

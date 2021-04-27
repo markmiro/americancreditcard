@@ -8,7 +8,7 @@ export function usdToDinars(usd) {
   return usd * 180;
 }
 
-export const CARD_PRICE_DINARS = 2150;
+export const CARD_PRICE_DINARS = 2500;
 // Math.ceil() to round up since that's the safer rounding to make
 // since this is the amount people would be paying
 export const CARD_PRICE_USD = Math.ceil(dinarsToUsd(CARD_PRICE_DINARS));
