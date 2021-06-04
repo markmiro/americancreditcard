@@ -13,6 +13,7 @@ export function Form() {
   const router = useRouter();
   const [frontImage, setFrontImage] = useState(null);
   const [backImage, setBackImage] = useState(null);
+  const [receiptImage, setReceiptImage] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   function debugAutoFill() {
@@ -39,16 +40,23 @@ export function Form() {
     }
 
     if (!frontImage) {
-      alert("Please upload both the front of your ID.");
+      alert("Please upload the front of your ID.");
       document.getElementById("front_id_image_button").focus();
       document.getElementById("front_id_image_button").scrollIntoView();
       return;
     }
 
     if (!backImage) {
-      alert("Please upload both the back of your ID.");
+      alert("Please upload the back of your ID.");
       document.getElementById("back_id_image_button").focus();
       document.getElementById("back_id_image_button").scrollIntoView();
+      return;
+    }
+
+    if (!receiptImage) {
+      alert("Please upload the transaction receipt.");
+      document.getElementById("receipt_id_image_button").focus();
+      document.getElementById("receipt_id_image_button").scrollIntoView();
       return;
     }
 
@@ -102,11 +110,13 @@ export function Form() {
       await submitData({
         data,
         frontImage: await getImageData(frontImage),
-        backImage: await getImageData(backImage)
+        backImage: await getImageData(backImage),
+        receiptImage: await getImageData(receiptImage)
       });
       // Don't reset anything, just change route when success
       goToSuccess();
     } catch (errors) {
+      console.log('@errors', errors)
       alert(
         "Submission failed. Please fix any errors and try again. Contact support if you need help."
       );
@@ -208,6 +218,29 @@ export function Form() {
           >
             Upload Back Image
           </ImageUpload>
+        </div>
+      </div>
+
+      <div className="pt-4" />
+
+      <div className="pt-4" />
+
+      <div className="card bg-dark border-secondary">
+        <div className="card-header border-secondary text-center">
+          Transaction
+        </div>
+        <div className="card-body">
+          <ImageUpload
+            image={receiptImage}
+            onImageChange={setReceiptImage}
+            buttonId="receipt_id_image_button"
+          >
+            Upload Receipt
+          </ImageUpload>
+          <div className="pt-3" />
+          <p>
+            Please make sure to take a picture of the transaction receipt.
+          </p>
         </div>
       </div>
 

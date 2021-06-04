@@ -15,7 +15,10 @@ const HelpCard = () => (
       Need help? Contact customer support:{" "}
       <u>
         <a href="tel:+213-542-90-50-08" className="d-block ">
-          +213-542-90-50-08
+           +213-542-90-50-08
+        </a>
+        <a href="email:support@americanrivergold.com" className="d-block ">
+          support@americanrivergold.com
         </a>
       </u>
     </div>

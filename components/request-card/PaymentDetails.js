@@ -9,7 +9,7 @@ import {
 export function PaymentDetails() {
   const [payNow, setPayNow] = useState(true);
   const [dinars, setDinars] = useState(MIN_DINARS);
-
+  console.log('@@MIN_DINARS', MIN_DINARS, MIN_USD)
   return (
     <div className="card bg-dark border-secondary">
       <div className="card-body">
@@ -73,15 +73,16 @@ export function PaymentDetails() {
               )}
             </div>
 
-            <p>
-              Please send <b>{CARD_PRICE_DINARS + dinars} DZD</b> to the bank
-              account specified below.
-              <br />
-              <small className="text-muted">
-                ({CARD_PRICE_DINARS} DZD is for the card + {dinars} DZD that you
-                wanted loaded)
-              </small>
-            </p>
+            {dinars ?
+              <p>
+                Please send <b>{CARD_PRICE_DINARS + dinars} DZD</b> to the bank
+                account specified below.
+                <br />
+                <small className="text-muted">
+                  ({CARD_PRICE_DINARS} DZD is for the card + {dinars} DZD that you
+                  wanted loaded)
+                </small>
+              </p> : null}
 
             <pre className="text-white bg-secondary p-2">
               <b>
@@ -107,7 +108,7 @@ export function PaymentDetails() {
               <br />
             </pre>
 
-            <p>
+            {/* <p>
               Once the payment is sent, put in the transation reference number.
             </p>
 
@@ -119,7 +120,7 @@ export function PaymentDetails() {
                 autoCapitalize="off"
                 required
               />
-            </div>
+            </div> */}
           </>
         )}
         {!payNow && (

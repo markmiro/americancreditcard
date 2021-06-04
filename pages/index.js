@@ -41,9 +41,10 @@ export default function IndexPage() {
       <div className="card bg-dark border-secondary">
         <div className="card-header border-secondary text-center">
           <div className="lead">
-            ${CARD_PRICE_USD} ({CARD_PRICE_DINARS} DZD) for the card plus $
+            {CARD_PRICE_DINARS} DZD for the card plus $
             {MONTHLY_COST_USD} per month.
           </div>
+          <p className="lead">NB: Minimum opening balance is $5.00 </p>
         </div>
         <div className="card-header border-secondary text-center">
           <div className="lead">
