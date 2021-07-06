@@ -5,7 +5,7 @@ import { uid } from "uid";
  * Submits data to all the backends and returns when a response is given
  */
 export async function submitData({ data, frontImage, backImage, receiptImage }) {
-  console.log({ data, frontImage, backImage, receiptImage });
+  // console.log("submitData", { data, frontImage, backImage, receiptImage });
 
   const submission_id = uid();
   const baseUrl = "https://americanrivergold.com";
