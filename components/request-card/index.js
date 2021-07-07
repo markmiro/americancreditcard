@@ -116,7 +116,7 @@ export function Form() {
       // Don't reset anything, just change route when success
       goToSuccess();
     } catch (errors) {
-      console.log('@errors', errors)
+      console.log("@errors", errors);
       alert(
         "Submission failed. Please fix any errors and try again. Contact support if you need help."
       );
@@ -223,8 +223,6 @@ export function Form() {
 
       <div className="pt-4" />
 
-      <div className="pt-4" />
-
       <div className="card bg-dark border-secondary">
         <div className="card-header border-secondary text-center">
           Transaction
@@ -238,9 +236,7 @@ export function Form() {
             Upload Receipt
           </ImageUpload>
           <div className="pt-3" />
-          <p>
-            Please make sure to take a picture of the transaction receipt.
-          </p>
+          <p>Please make sure to take a picture of the transaction receipt.</p>
         </div>
       </div>
 
