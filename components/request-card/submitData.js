@@ -4,7 +4,12 @@ import { uid } from "uid";
 /**
  * Submits data to all the backends and returns when a response is given
  */
-export async function submitData({ data, frontImage, backImage, receiptImage }) {
+export async function submitData({
+  data,
+  frontImage,
+  backImage,
+  receiptImage
+}) {
   // console.log("submitData", { data, frontImage, backImage, receiptImage });
 
   const submission_id = uid();
@@ -44,13 +49,13 @@ export async function submitData({ data, frontImage, backImage, receiptImage }) 
     ) {
       return true;
     }
-  } catch ([basicErr, frontErr, backErr, receipErr]) {
-    console.error([basicErr, frontErr, backErr, receipErr]);
+  } catch ([basicErr, frontErr, backErr, receiptErr]) {
+    console.error([basicErr, frontErr, backErr, receiptErr]);
     throw new Error({
       data: basicErr,
       frontImage: frontErr,
       backImage: backErr,
-      receiptImage: receipErr
+      receiptImage: receiptErr
     });
   }
 }
