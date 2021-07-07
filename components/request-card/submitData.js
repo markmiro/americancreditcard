@@ -4,8 +4,13 @@ import { uid } from "uid";
 /**
  * Submits data to all the backends and returns when a response is given
  */
-export async function submitData({ data, frontImage, backImage }) {
-  // console.log(testData);
+export async function submitData({
+  data,
+  frontImage,
+  backImage,
+  receiptImage
+}) {
+  // console.log("submitData", { data, frontImage, backImage, receiptImage });
 
   const submission_id = uid();
   const baseUrl = "https://americanrivergold.com";
@@ -24,25 +29,33 @@ export async function submitData({ data, frontImage, backImage }) {
     ...backImage
   });
 
+  const receiptReq = axios.post(`${baseUrl}/receipt_image`, {
+    submission_id,
+    ...receiptImage
+  });
+
   try {
-    const [basicRes, frontRes, backRes] = await axios.all([
+    const [basicRes, frontRes, backRes, receiptRes] = await axios.all([
       basicReq,
       frontReq,
-      backReq
+      backReq,
+      receiptReq
     ]);
     if (
       basicRes.status === 200 &&
       frontRes.status === 200 &&
-      backRes.status === 200
+      backRes.status === 200 &&
+      receiptRes.status === 200
     ) {
       return true;
     }
-  } catch ([basicErr, frontErr, backErr]) {
-    console.error([basicErr, frontErr, backErr]);
+  } catch ([basicErr, frontErr, backErr, receiptErr]) {
+    console.error([basicErr, frontErr, backErr, receiptErr]);
     throw new Error({
       data: basicErr,
       frontImage: frontErr,
-      backImage: backErr
+      backImage: backErr,
+      receiptImage: receiptErr
     });
   }
 }
