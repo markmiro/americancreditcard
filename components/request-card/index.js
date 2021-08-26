@@ -62,13 +62,12 @@ export function Form() {
 
     const getImageData = async (image) => {
       if (!image) return;
-      const resizedFile = await resizeFile(image.file);
       return {
-        name: resizedFile.name,
-        last_modified: resizedFile.lastModified,
-        size: resizedFile.size,
-        type: resizedFile.type,
-        data_url: resizedFile.dataUrl,
+        name: image.name,
+        last_modified: image.lastModified,
+        size: image.size,
+        type: image.type,
+        data_url: image.dataUrl,
       };
     };
 
@@ -103,7 +102,7 @@ export function Form() {
       referral_code: e.target["referral_code"]?.value ?? "",
       dinar_amount: e.target["dinar_amount"]?.value ?? 0,
       txn_reference: e.target["txn_reference"]?.value ?? "",
-      comments: e.target["comments"]?.value ?? "",
+      comment: e.target["comment"]?.value ?? "",
     };
 
     try {
@@ -249,7 +248,7 @@ export function Form() {
 
       <div className="form-group">
         <label>Questions or comments? (optional)</label>
-        <textarea name="comments" className="form-control" />
+        <textarea name="comment" className="form-control" />
       </div>
 
       <div className="pt-4" />

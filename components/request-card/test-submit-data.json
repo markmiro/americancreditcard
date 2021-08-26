@@ -9,5 +9,6 @@
   "address": "123 Elm St.",
   "referral_code": "20_PERCENT_OFF",
   "dinar_amount": 360,
-  "txn_reference": "FOOBAR_BANK_TXN_NUMBER"
+  "txn_reference": "FOOBAR_BANK_TXN_NUMBER",
+  "comment": "A random comment"
 }

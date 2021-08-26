@@ -5,7 +5,7 @@ import ImageUploading from "react-images-uploading";
 import Resizer from "react-image-file-resizer";
 
 export const resizeFile = (file) => {
-  const MAX_W = 2048;
+  const MAX_W = 1024;
   const MAX_H = MAX_W;
 
   return new Promise((resolve) => {
@@ -21,7 +21,7 @@ export const resizeFile = (file) => {
           ...file,
           size: null,
           type: "image/jpeg",
-          dataUrl: uri
+          dataUrl: uri,
         });
       },
       "base64"
@@ -30,19 +30,19 @@ export const resizeFile = (file) => {
 };
 
 export function ImageUpload({ image, onImageChange, buttonId, children }) {
-  // const [resized, setResized] = useState(null);
   const dataURLKey = "dataUrl";
-
-  // useEffect(async () => {
-  //   if (!image) return;
-  //   setResized(await resizeFile(image.file));
-  // }, [image]);
 
   return (
     <ImageUploading
       name="file"
       value={image && [image]}
-      onChange={(imageList) => onImageChange(imageList[0])}
+      onChange={async (imageList) => {
+        if (imageList[0]) {
+          onImageChange(await resizeFile(imageList[0].file));
+        } else {
+          onImageChange(null);
+        }
+      }}
       dataURLKey={dataURLKey}
     >
       {({ imageList, onImageUpload, onImageUpdate, onImageRemove }) =>
@@ -63,18 +63,7 @@ export function ImageUpload({ image, onImageChange, buttonId, children }) {
             className="card bg-secondary position-relative"
             style={{ overflow: "hidden" }}
           >
-            <img className="card-img-top" src={imageList[0][dataURLKey]} />
-            {/* {resized && (
-              <div
-                style={{
-                  height: 400,
-                  background: `url(${resized.dataUrl})`,
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center center"
-                }}
-              />
-            )} */}
+            <img className="card-img-top" src={image[dataURLKey]} />
             <div
               className="p-2 position-absolute btn-group shadow"
               style={{ bottom: 0, right: 0 }}
