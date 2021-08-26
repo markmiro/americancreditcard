@@ -1,10 +1,6 @@
 /* eslint-disable */
 import Link from "next/link";
-import {
-  CARD_PRICE_USD,
-  CARD_PRICE_DINARS,
-  MONTHLY_COST_USD,
-} from "../components/cardUtils";
+import { CARD_PRICE_DINARS, MONTHLY_COST_USD } from "../components/cardUtils";
 
 export default function IndexPage() {
   return (
