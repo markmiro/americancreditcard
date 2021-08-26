@@ -103,6 +103,7 @@ export function Form() {
       referral_code: e.target["referral_code"]?.value ?? "",
       dinar_amount: e.target["dinar_amount"]?.value ?? 0,
       txn_reference: e.target["txn_reference"]?.value ?? "",
+      comments: e.target["comments"]?.value ?? "",
     };
 
     try {
@@ -242,6 +243,13 @@ export function Form() {
           <div className="pt-3" />
           <p>Please make sure to take a picture of the transaction receipt.</p>
         </div>
+      </div>
+
+      <div className="pt-4" />
+
+      <div className="form-group">
+        <label>Questions or comments? (optional)</label>
+        <textarea name="comments" className="form-control" />
       </div>
 
       <div className="pt-4" />
