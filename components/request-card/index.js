@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 import { Location } from "./Location";
-import { ReferalCode } from "./ReferalCode";
+import { ReferralCode } from "./ReferralCode";
 import { ImageUpload, resizeFile } from "./ImageUpload";
 import { PaymentDetails } from "./PaymentDetails";
 import { submitData } from "./submitData";
@@ -184,7 +184,7 @@ export function Form() {
 
       <div className="card bg-dark border-secondary">
         <div className="card-body">
-          <ReferalCode />
+          <ReferralCode />
         </div>
       </div>
 

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function ReferalCode() {
+export function ReferralCode() {
   const [showReferralCode, setShowReferralCode] = useState(true);
 
   return (
