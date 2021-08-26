@@ -21,7 +21,18 @@ export default function IndexPage() {
 
       <div className="pt-3" />
 
-      <h1>Hello there</h1>
+      <img
+        width="240px"
+        height="240px"
+        src="/algeria-map.png"
+        style={{
+          flexShrink: 0, // prevent shrinking before image loads
+        }}
+      />
+
+      <div className="pt-3" />
+
+      <h1>American Credit Card</h1>
       <p className="lead">
         The American Credit Card is a prepaid credit card, which allows
         Algerians to make purchases anywhere in the world and on the internet.
