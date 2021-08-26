@@ -6,14 +6,23 @@ export function Nav() {
   const [show, setShow] = useState(false);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+    <nav
+      className="navbar navbar-expand-lg navbar-light bg-light"
+      style={{
+        boxShadow:
+          "0 0.5rem 1rem rgba(0,0,0,0.05),inset 0 -1px 0 rgba(0,0,0,0.15)",
+      }}
+    >
       <div className="container-fluid">
         <Link href="/">
           <a className="navbar-brand">
             <img
               src="/acc-logo.png"
               width="48px"
-              style={{ transform: "translateY(-2px)" }}
+              style={{
+                transform: "translateY(-2px)",
+                filter: "drop-shadow(2px 2px 3px #00000033)",
+              }}
             />
             <span className="pl-2" />
             American Credit Card
@@ -54,14 +63,14 @@ export function Nav() {
             </li>
             <li className="nav-item">
               <Link href="https://americanrivergold.com/cardholders">
-                <a className="nav-link">Load Funds / Check Balance</a>
+                <a className="nav-link">Load Funds / Check Balance ↗</a>
               </Link>
             </li>
             <div className="pl-3" />
             <li className="nav-item">
               <Link href="/request-card">
                 <a
-                  className="btn btn-outline-light btn-block"
+                  className="btn btn-outline-dark btn-block"
                   onClick={() => setShow(false)}
                 >
                   Request Card

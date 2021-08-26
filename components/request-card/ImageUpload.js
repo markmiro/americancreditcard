@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ImageUploading from "react-images-uploading";
 
 import Resizer from "react-image-file-resizer";
@@ -71,7 +71,7 @@ export function ImageUpload({ image, onImageChange, buttonId, children }) {
               <button
                 // type="button" prevents form from being submitted when pressed
                 type="button"
-                className="btn btn-sm btn-dark"
+                className="btn btn-sm btn-light"
                 onClick={() => onImageUpdate(0)}
               >
                 Replace

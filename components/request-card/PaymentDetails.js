@@ -3,15 +3,15 @@ import {
   MIN_DINARS,
   CARD_PRICE_DINARS,
   MIN_USD,
-  dinarsToUsd
+  dinarsToUsd,
 } from "../cardUtils";
 
 export function PaymentDetails() {
   const [payNow, setPayNow] = useState(true);
   const [dinars, setDinars] = useState(MIN_DINARS);
-  console.log('@@MIN_DINARS', MIN_DINARS, MIN_USD)
+  console.log("@@MIN_DINARS", MIN_DINARS, MIN_USD);
   return (
-    <div className="card bg-dark border-secondary">
+    <div className="card">
       <div className="card-body">
         <div
           className="btn-group btn-group"
@@ -20,14 +20,14 @@ export function PaymentDetails() {
         >
           <button
             type="button"
-            className={`btn btn-outline-light ${payNow && "active"}`}
+            className={`btn btn-outline-secondary ${payNow && "active"}`}
             onClick={() => setPayNow(true)}
           >
             Pay now
           </button>
           <button
             type="button"
-            className={`btn btn-outline-light ${!payNow && "active"}`}
+            className={`btn btn-outline-secondary ${!payNow && "active"}`}
             onClick={() => setPayNow(false)}
           >
             Pay in-person
@@ -73,18 +73,19 @@ export function PaymentDetails() {
               )}
             </div>
 
-            {dinars ?
+            {dinars ? (
               <p>
                 Please send <b>{CARD_PRICE_DINARS + dinars} DZD</b> to the bank
                 account specified below.
                 <br />
                 <small className="text-muted">
-                  ({CARD_PRICE_DINARS} DZD is for the card + {dinars} DZD that you
-                  wanted loaded)
+                  ({CARD_PRICE_DINARS} DZD is for the card + {dinars} DZD that
+                  you wanted loaded)
                 </small>
-              </p> : null}
+              </p>
+            ) : null}
 
-            <pre className="text-white bg-secondary p-2">
+            <pre className="bg-light text-secondary p-2">
               <b>
                 <u>Infos Poste</u>
               </b>
