@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 import { Location } from "./Location";
 import { ReferralCode } from "./ReferralCode";
-import { ImageUpload, resizeFile } from "./ImageUpload";
+import { ImageUpload } from "./ImageUpload";
 import { PaymentDetails } from "./PaymentDetails";
 import { submitData } from "./submitData";
 import testData from "./test-submit-data.json";

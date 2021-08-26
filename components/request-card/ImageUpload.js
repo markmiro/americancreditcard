@@ -1,5 +1,5 @@
 /* eslint-disable */
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ImageUploading from "react-images-uploading";
 
 import Resizer from "react-image-file-resizer";
