@@ -3,7 +3,7 @@ import Link from "next/link";
 import {
   CARD_PRICE_USD,
   CARD_PRICE_DINARS,
-  MONTHLY_COST_USD
+  MONTHLY_COST_USD,
 } from "../components/cardUtils";
 
 export default function IndexPage() {
@@ -12,7 +12,7 @@ export default function IndexPage() {
       className="inner cover mt-auto d-flex flex-column h-100 text-center"
       style={{
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
       }}
     >
       {/* <div className="h3">🇩🇿 + 🇺🇸</div> */}
@@ -27,7 +27,7 @@ export default function IndexPage() {
 
       <h1>Hello there</h1>
       <p className="lead">
-        The American Credit Card is a prepaid virtual card, which allows
+        The American Credit Card is a prepaid credit card, which allows
         Algerians to make purchases anywhere in the world and on the internet.
       </p>
       <p className="lead">
@@ -41,10 +41,10 @@ export default function IndexPage() {
       <div className="card bg-dark border-secondary">
         <div className="card-header border-secondary text-center">
           <div className="lead">
-            {CARD_PRICE_DINARS} DZD for the card plus $
-            {MONTHLY_COST_USD} per month.
+            {CARD_PRICE_DINARS} DZD for the card plus ${MONTHLY_COST_USD} per
+            month.
           </div>
-          <p className="lead">NB: Minimum opening balance is $5.00 </p>
+          <p className="lead">Minimum opening balance is $5.00 </p>
         </div>
         <div className="card-header border-secondary text-center">
           <div className="lead">
