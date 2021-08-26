@@ -71,7 +71,7 @@ export function ImageUpload({ image, onImageChange, buttonId, children }) {
               <button
                 // type="button" prevents form from being submitted when pressed
                 type="button"
-                className="btn btn-sm btn-dark"
+                className="btn btn-sm btn-light"
                 onClick={() => onImageUpdate(0)}
               >
                 Replace

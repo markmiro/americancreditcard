@@ -3,18 +3,22 @@ import Link from "next/link";
 import {
   CARD_PRICE_USD,
   CARD_PRICE_DINARS,
-  MONTHLY_COST_USD
+  MONTHLY_COST_USD,
 } from "../components/cardUtils";
 
 export default function FaqPage() {
   return (
     <div>
       <h1>FAQ</h1>
-      <p>
-        <Link href="/request-card">
-          <a className="btn btn-lg btn-primary">Request a Card →</a>
-        </Link>
-      </p>
+
+      <div className="pt-3" />
+
+      <Link href="/request-card">
+        <a className="btn btn-lg btn-primary">Request a Card →</a>
+      </Link>
+
+      <div className="pt-3" />
+
       <u>
         <b>What is the American Credit Card?</b>
       </u>

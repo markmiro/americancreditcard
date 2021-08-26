@@ -3,17 +3,26 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../styles/index.css";
 import { Nav } from "../components/nav";
 
+const RedStripe = () => (
+  <div
+    style={{
+      borderBottom: "2px solid var(--red)",
+      marginTop: "2px",
+    }}
+  />
+);
+
 export default function App({ Component, pageProps }) {
   const router = useRouter();
 
   return (
     <div
-      className="d-flex mx-auto flex-column text-white"
+      className="d-flex mx-auto flex-column"
       style={{
         minHeight: "100vh",
         borderTop: "4px solid var(--brand)",
         // Relative so positioned bg doesn't overlap content
-        position: "relative"
+        position: "relative",
       }}
     >
       <Nav />
@@ -21,12 +30,17 @@ export default function App({ Component, pageProps }) {
         <div
           key={router.pathname}
           className="container-sm arg-slide-fade-in"
-          style={{ maxWidth: "550px" }}
+          style={{ maxWidth: "600px" }}
         >
           <pre>{JSON.stringify(Component, null, "  ")}</pre>
+          {/* <div className="bg-white p-4"> */}
           <Component {...pageProps} />
+          {/* </div> */}
         </div>
       </div>
+      <RedStripe />
+      <RedStripe />
+      <RedStripe />
       <footer className="text-center text-secondary">
         <div className="inner">
           <div className="pb-3" />

@@ -7,7 +7,7 @@ export default function NotFound() {
       <h1>404: Page Not Found</h1>
       <div className="pt-4" />
       <Link href="/">
-        <a className="btn btn-outline-light">← Home</a>
+        <a className="btn btn-outline-dark">← Home</a>
       </Link>
     </div>
   );

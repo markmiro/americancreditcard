@@ -11,13 +11,8 @@ export default function IndexPage() {
         justifyContent: "center",
       }}
     >
-      {/* <div className="h3">🇩🇿 + 🇺🇸</div> */}
-      <img
-        src="/payment-processors.png"
-        height="48"
-        alt=""
-        style={{ filter: "grayscale(0.4)", opacity: 0.6 }}
-      />
+      {/* <div className="h1">🇩🇿 • 🇺🇸</div> */}
+      <img src="/payment-processors.png" height="48" alt="" />
 
       <div className="pt-3" />
 
@@ -33,6 +28,9 @@ export default function IndexPage() {
       <div className="pt-3" />
 
       <h1>American Credit Card</h1>
+
+      <div className="pt-3" />
+
       <p className="lead">
         The American Credit Card is a prepaid credit card, which allows
         Algerians to make purchases anywhere in the world and on the internet.
@@ -45,30 +43,34 @@ export default function IndexPage() {
 
       <div className="pt-4" />
 
-      <div className="card bg-dark border-secondary">
-        <div className="card-header border-secondary text-center">
-          <div className="lead">
-            {CARD_PRICE_DINARS} DZD for the card plus ${MONTHLY_COST_USD} per
-            month.
+      <div className="card">
+        <ul class="list-group list-group-flush">
+          <div className="list-group-item text-center">
+            <div className="lead">
+              {CARD_PRICE_DINARS} DZD for the card plus ${MONTHLY_COST_USD} per
+              month.
+            </div>
+            <div className="lead">Minimum opening balance is $5.00 </div>
           </div>
-          <p className="lead">Minimum opening balance is $5.00 </p>
-        </div>
-        <div className="card-header border-secondary text-center">
-          <div className="lead">
-            And, for the first time in Algeria, when you buy a credit card, it
-            will be activated the same day!
+          <div className="list-group-item text-center">
+            <div className="lead">
+              And, for the first time in Algeria, when you buy a credit card, it
+              will be activated the same day!
+            </div>
           </div>
-        </div>
-        <div className="card-header text-center">
-          <div className="lead">Your card is activated within a few hours.</div>
-        </div>
+          <div className="list-group-item text-center">
+            <div className="lead">
+              Your card is activated within a few hours.
+            </div>
+          </div>
+        </ul>
       </div>
 
       <div className="pt-4" />
 
       <p>
         <Link href="/faq">
-          <a className="btn btn-outline-light">Learn More →</a>
+          <a className="btn btn-outline-dark">Learn More →</a>
         </Link>
       </p>
     </div>

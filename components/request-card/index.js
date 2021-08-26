@@ -181,7 +181,7 @@ export function Form() {
 
       <hr className="mt-4 mb-4" />
 
-      <div className="card bg-dark border-secondary">
+      <div className="card">
         <div className="card-body">
           <ReferralCode />
         </div>
@@ -189,8 +189,8 @@ export function Form() {
 
       <div className="pt-4" />
 
-      <div className="card bg-dark border-secondary">
-        <div className="card-header border-secondary text-center">Location</div>
+      <div className="card">
+        <div className="card-header text-center">Location</div>
         <div className="card-body">
           <Location />
         </div>
@@ -198,10 +198,8 @@ export function Form() {
 
       <div className="pt-4" />
 
-      <div className="card bg-dark border-secondary">
-        <div className="card-header border-secondary text-center">
-          Upload ID
-        </div>
+      <div className="card">
+        <div className="card-header text-center">Upload ID</div>
         <div className="card-body">
           <ImageUpload
             image={frontImage}
@@ -227,10 +225,8 @@ export function Form() {
 
       <div className="pt-4" />
 
-      <div className="card bg-dark border-secondary">
-        <div className="card-header border-secondary text-center">
-          Transaction
-        </div>
+      <div className="card">
+        <div className="card-header text-center">Transaction</div>
         <div className="card-body">
           <ImageUpload
             image={receiptImage}
@@ -240,7 +236,9 @@ export function Form() {
             Upload Receipt
           </ImageUpload>
           <div className="pt-3" />
-          <p>Please make sure to take a picture of the transaction receipt.</p>
+          <div>
+            Please make sure to take a picture of the transaction receipt.
+          </div>
         </div>
       </div>
 

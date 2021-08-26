@@ -5,50 +5,30 @@
 :root {
   /* Using bootstrap default. Used for logo too */
   --brand: #007bff;
+  --red: #f45a5a;
 }
 
 html,
 body {
   min-height: 100%;
-  background: var(--dark);
-}
-
-body:before {
-  content: "";
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  background-image: url("/page-bg.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 0.2;
-  pointer-events: none;
 }
 
 a,
 a:focus,
 a:hover {
-  color: #fff;
-}
-
-hr {
-  background-color: #ffffff33;
+  color: inherit;
 }
 
 /*
  * Bootstrap overrides
  */
 
-.form-control {
-  color: white;
-  background: var(--dark);
-  border-color: var(--secondary);
-}
-.form-control:focus {
-  color: white;
-  background: var(--dark);
+h1 {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.1em;
+  text-decoration-color: var(--red);
+  text-decoration-style: double;
 }
 
 /*
