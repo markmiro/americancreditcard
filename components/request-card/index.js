@@ -68,7 +68,7 @@ export function Form() {
         last_modified: resizedFile.lastModified,
         size: resizedFile.size,
         type: resizedFile.type,
-        data_url: resizedFile.dataUrl
+        data_url: resizedFile.dataUrl,
       };
     };
 
@@ -102,7 +102,7 @@ export function Form() {
       address: e.target["address"].value,
       referral_code: e.target["referral_code"]?.value ?? "",
       dinar_amount: e.target["dinar_amount"]?.value ?? 0,
-      txn_reference: e.target["txn_reference"]?.value ?? ""
+      txn_reference: e.target["txn_reference"]?.value ?? "",
     };
 
     try {
@@ -111,7 +111,7 @@ export function Form() {
         data,
         frontImage: await getImageData(frontImage),
         backImage: await getImageData(backImage),
-        receiptImage: await getImageData(receiptImage)
+        receiptImage: await getImageData(receiptImage),
       });
       // Don't reset anything, just change route when success
       goToSuccess();
@@ -223,6 +223,10 @@ export function Form() {
 
       <div className="pt-4" />
 
+      <PaymentDetails />
+
+      <div className="pt-4" />
+
       <div className="card bg-dark border-secondary">
         <div className="card-header border-secondary text-center">
           Transaction
@@ -239,10 +243,6 @@ export function Form() {
           <p>Please make sure to take a picture of the transaction receipt.</p>
         </div>
       </div>
-
-      <div className="pt-4" />
-
-      <PaymentDetails />
 
       <div className="pt-4" />
 
