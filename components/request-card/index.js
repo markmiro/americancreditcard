@@ -62,13 +62,12 @@ export function Form() {
 
     const getImageData = async (image) => {
       if (!image) return;
-      const resizedFile = await resizeFile(image.file);
       return {
-        name: resizedFile.name,
-        last_modified: resizedFile.lastModified,
-        size: resizedFile.size,
-        type: resizedFile.type,
-        data_url: resizedFile.dataUrl,
+        name: image.name,
+        last_modified: image.lastModified,
+        size: image.size,
+        type: image.type,
+        data_url: image.dataUrl,
       };
     };
 
