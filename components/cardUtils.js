@@ -1,11 +1,11 @@
 export function dinarsToUsd(dinars) {
   if (!dinars) return 0;
-  return dinars / 180;
+  return dinars / 185;
 }
 
 export function usdToDinars(usd) {
   if (!usd) return 0;
-  return usd * 180;
+  return usd * 185;
 }
 
 export const CARD_PRICE_DINARS = 2150;
