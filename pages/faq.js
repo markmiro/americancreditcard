@@ -1,12 +1,18 @@
 /* eslint-disable */
 import Link from "next/link";
-import {
-  CARD_PRICE_USD,
-  CARD_PRICE_DINARS,
-  MONTHLY_COST_USD,
-} from "../components/cardUtils";
+import { prettyUsdCents } from "../components/cardUtils";
+import { useVariables } from "../components/variablesContext";
 
 export default function FaqPage() {
+  const {
+    support_email,
+    support_phone,
+    dinars_per_usd,
+    card_monthly_cost_usd_cents,
+    card_price_dinars,
+    dinarsToUsdCents,
+  } = useVariables();
+
   return (
     <div>
       <h1>FAQ</h1>
@@ -31,12 +37,13 @@ export default function FaqPage() {
         <b>What are the fees?</b>
       </u>
       <p>
-        ${CARD_PRICE_USD} ({CARD_PRICE_DINARS} DZD) for the card plus $
-        {MONTHLY_COST_USD} per month.
+        ${prettyUsdCents(dinarsToUsdCents(card_price_dinars))} (
+        {card_price_dinars} DZD) for the card plus $
+        {prettyUsdCents(card_monthly_cost_usd_cents)} per month.
       </p>
       <p>
-        Reload rate is 180 DZD = 1 United States Dollar on the card (this may
-        change according to economic conditions).
+        Reload rate is {dinars_per_usd} DZD = 1 United States Dollar on the card
+        (this may change according to economic conditions).
       </p>
       <u>
         <b>What do I get when I purchase a card?</b>
@@ -103,15 +110,13 @@ export default function FaqPage() {
         <li>
           Email:{" "}
           <u>
-            <a href="mailto:support@americanrivergold.com">
-              support@americanrivergold.com
-            </a>
+            <a href={`mailto:${support_email}`}>{support_email}</a>
           </u>
         </li>
         <li>
           Telephone / WhatsApp:{" "}
           <u>
-            <a href="tel:+213-798-59-63-22">+213-798-59-63-22</a>
+            <a href={`tel:${support_phone}`}>{support_phone}</a>
           </u>
         </li>
       </ul>

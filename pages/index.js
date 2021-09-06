@@ -1,8 +1,15 @@
 /* eslint-disable */
 import Link from "next/link";
-import { CARD_PRICE_DINARS, MONTHLY_COST_USD } from "../components/cardUtils";
+import { prettyUsdCents } from "../components/cardUtils";
+import { useVariables } from "../components/variablesContext";
 
 export default function IndexPage() {
+  const {
+    card_price_dinars,
+    card_monthly_cost_usd_cents,
+    min_opening_balance_usd_cents,
+  } = useVariables();
+
   return (
     <div
       className="inner cover mt-auto d-flex flex-column h-100 text-center"
@@ -44,13 +51,16 @@ export default function IndexPage() {
       <div className="pt-4" />
 
       <div className="card">
-        <ul class="list-group list-group-flush">
+        <ul className="list-group list-group-flush">
           <div className="list-group-item text-center">
             <div className="lead">
-              {CARD_PRICE_DINARS} DZD for the card plus ${MONTHLY_COST_USD} per
-              month.
+              {card_price_dinars} DZD for the card plus $
+              {prettyUsdCents(card_monthly_cost_usd_cents)} per month.
             </div>
-            <div className="lead">Minimum opening balance is $5.00 </div>
+            <div className="lead">
+              Minimum opening balance is $
+              {prettyUsdCents(min_opening_balance_usd_cents)}
+            </div>
           </div>
           <div className="list-group-item text-center">
             <div className="lead">

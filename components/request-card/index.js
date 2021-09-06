@@ -130,7 +130,7 @@ export function Form() {
       disabled={isSubmitting}
       encType="multipart/form-data"
     >
-      {process.env.NODE_ENV === "development" && (
+      {["development", "preview"].includes(process.env.NODE_ENV) && (
         <button type="button" onClick={debugAutoFill}>
           Auto Fill
         </button>

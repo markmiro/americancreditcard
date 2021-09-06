@@ -1,15 +1,18 @@
 import { useState } from "react";
-import {
-  MIN_DINARS,
-  CARD_PRICE_DINARS,
-  MIN_USD,
-  dinarsToUsd,
-} from "../cardUtils";
+import { prettyUsdCents } from "../cardUtils";
+import { useVariables } from "../variablesContext";
 
 export function PaymentDetails() {
+  const {
+    dinarsToUsdCents,
+    usdCentsToDinars,
+    min_opening_balance_usd_cents,
+    card_price_dinars,
+  } = useVariables();
+  const minDinars = usdCentsToDinars(min_opening_balance_usd_cents);
   const [payNow, setPayNow] = useState(true);
-  const [dinars, setDinars] = useState(MIN_DINARS);
-  console.log("@@MIN_DINARS", MIN_DINARS, MIN_USD);
+  const [dinars, setDinars] = useState(minDinars);
+  console.log("@@minDinars", minDinars, min_opening_balance_usd_cents);
   return (
     <div className="card">
       <div className="card-body">
@@ -44,7 +47,7 @@ export function PaymentDetails() {
               <div className="input-group">
                 <div className="input-group-prepend">
                   <span className="input-group-text">
-                    {CARD_PRICE_DINARS} DZD +
+                    {card_price_dinars} DZD +
                   </span>
                 </div>
                 <input
@@ -60,26 +63,28 @@ export function PaymentDetails() {
                   <span className="input-group-text">DZD</span>
                 </span>
               </div>
-              {dinars < MIN_DINARS ? (
+              {dinars < minDinars ? (
                 // 'd-block' because 'invalid-feedback' defaults to `display: none`
                 <div className="invalid-feedback d-block">
-                  Please put in at least ${MIN_USD}
+                  Please put in at least $
+                  {prettyUsdCents(min_opening_balance_usd_cents)}
                 </div>
               ) : (
                 // 'd-block' because 'invalid-feedback' defaults to `display: none`
                 <div className="valid-feedback d-block">
-                  You'll recieve <b>${dinarsToUsd(dinars).toFixed(2)}</b>
+                  You'll receive{" "}
+                  <b>${prettyUsdCents(dinarsToUsdCents(dinars))}</b>
                 </div>
               )}
             </div>
 
             {dinars ? (
               <p>
-                Please send <b>{CARD_PRICE_DINARS + dinars} DZD</b> to the bank
+                Please send <b>{card_price_dinars + dinars} DZD</b> to the bank
                 account specified below.
                 <br />
                 <small className="text-muted">
-                  ({CARD_PRICE_DINARS} DZD is for the card + {dinars} DZD that
+                  ({card_price_dinars} DZD is for the card + {dinars} DZD that
                   you wanted loaded)
                 </small>
               </p>
